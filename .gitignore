@@ -34,3 +34,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+*.dat
+
+EvolutionaryRunBest_*
+
+EvolutionaryStatistics_*
