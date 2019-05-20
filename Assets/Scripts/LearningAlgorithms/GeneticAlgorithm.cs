@@ -35,19 +35,30 @@ public class GeneticAlgorithm : MetaHeuristic
     public override void Step()
     {
         population.Sort(new IndividualComparer());
-        List<Individual> offspring = new List<Individual>();
-        for (int i = 0; i < tournamentSize; i++)
+        List<Individual> new_population = new List<Individual>();
+        int parents_continue = (int)Mathf.Floor(tournamentSize * 0.1f);
+        for (int i = 0; i < tournamentSize - parents_continue / 2; i++)
         {
             Individual child = population[i].Clone();
             child.Crossover(population[(i + 1) % tournamentSize], 0);
-            offspring.Add(child);
+            new_population.Add(child);
             child = population[i].Clone();
             child.Crossover(population[(i + 2) % tournamentSize], 0);
-            offspring.Add(child);
+            new_population.Add(child);
         }
-		
-        //implement selection from offspring / parents
-        throw new System.NotImplementedException();
+
+        for (int i = 0; i < parents_continue; i++)
+        {
+            new_population.Add(population[i].Clone());
+        }
+
+        foreach (var ind in new_population)
+        {
+            ind.Mutate(mutationProbability);
+        }
+
+        population = new_population;
+        generation++;
     }
 
 }
