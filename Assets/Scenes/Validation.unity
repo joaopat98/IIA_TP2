@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -321,9 +321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoText: {fileID: 812458883}
   simulating: 0
-  savePathBluePlayer: /Users/nunolourenco/Dropbox/UC/Teaching/2018-2019/2ndSemester/IIA/IIA-2017-2018/IIA-2019/TP2/RocketLeague/Best_1556445855.dat
-  savePathRedPlayer: /Users/nunolourenco/Dropbox/UC/Teaching/2018-2019/2ndSemester/IIA/IIA-2017-2018/IIA-2019/TP2/RocketLeague/Best_1556460340.dat
-  simulationPrefab: {fileID: 7817105169101141572, guid: bd01af788228c4345b88f3a7069a4d67,
+  savePathBluePlayer: Best_1556578348.dat
+  savePathRedPlayer: 
+  simulationPrefab: {fileID: 9123027176374597434, guid: d149e97bd0cef46c2acc87136e978d12,
     type: 3}
   TheTimeScale: 6
 --- !u!4 &1140463230

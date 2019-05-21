@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GeneticAlgorithm : MetaHeuristic
 {
-
     private class IndividualComparer : IComparer<Individual>
     {
         public int Compare(Individual x, Individual y)
@@ -17,6 +16,8 @@ public class GeneticAlgorithm : MetaHeuristic
     public float crossoverProbability;
     public int tournamentSize;
     public bool elitist;
+
+    public int num_elites;
 
     public override void InitPopulation()
     {
@@ -34,20 +35,24 @@ public class GeneticAlgorithm : MetaHeuristic
     //The Step function assumes that the fitness values of all the individuals in the population have been calculated.
     public override void Step()
     {
+        if (!elitist)
+            num_elites = 0;
         population.Sort(new IndividualComparer());
         List<Individual> new_population = new List<Individual>();
-        int parents_continue = (int)Mathf.Floor(tournamentSize * 0.1f);
-        for (int i = 0; i < tournamentSize - parents_continue / 2; i++)
+        for (int i = 0; i < tournamentSize - Mathf.Floor(num_elites / (float)2); i++)
         {
             Individual child = population[i].Clone();
-            child.Crossover(population[(i + 1) % tournamentSize], 0);
+            child.Crossover(population[(i + 1) % tournamentSize], crossoverProbability);
             new_population.Add(child);
             child = population[i].Clone();
-            child.Crossover(population[(i + 2) % tournamentSize], 0);
+            child.Crossover(population[(i + 2) % tournamentSize], crossoverProbability);
             new_population.Add(child);
         }
 
-        for (int i = 0; i < parents_continue; i++)
+        if (num_elites % 2 == 1)
+            new_population.RemoveAt(new_population.Count - 1);
+
+        for (int i = 0; i < num_elites; i++)
         {
             new_population.Add(population[i].Clone());
         }

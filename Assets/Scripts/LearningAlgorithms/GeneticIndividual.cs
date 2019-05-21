@@ -20,13 +20,16 @@ public class GeneticIndividual : Individual
 
     public override void Crossover(Individual partner, float probability)
     {
-        int first, second;
-        first = Random.Range(0, genotype.Length - 2);
-        second = Random.Range(first + 1, genotype.Length - 1);
-		for (int i = first; i <= second; i++)
-		{
-			genotype[i] = ((GeneticIndividual) partner).genotype[i];
-		}
+        if (Random.Range(0.0f, 1.0f) < probability)
+        {
+            int first, second;
+            first = Random.Range(0, genotype.Length - 2);
+            second = Random.Range(first + 1, genotype.Length - 1);
+            for (int i = first; i <= second; i++)
+            {
+                genotype[i] = ((GeneticIndividual)partner).genotype[i];
+            }
+        }
     }
 
     public override void Mutate(float probability)
