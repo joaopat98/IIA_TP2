@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GeneticAlgorithm : MetaHeuristic
 {
@@ -67,6 +68,8 @@ public class GeneticAlgorithm : MetaHeuristic
         generation++;
 
         Debug.Log(population.Count);
+
+        Console.WriteLine("gen " + generation + " of " + numGenerations + "...");
     }
 
 }

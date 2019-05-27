@@ -40,3 +40,15 @@ sysinfo.txt
 EvolutionaryRunBest_*
 
 EvolutionaryStatistics_*
+
+Logs/Packages-Update\.log
+
+Packages/manifest\.json
+
+ProjectSettings/EditorBuildSettings\.asset
+
+ProjectSettings/GraphicsSettings\.asset
+
+ProjectSettings/ProjectVersion\.txt
+
+ProjectSettings/UnityConnectSettings\.asset

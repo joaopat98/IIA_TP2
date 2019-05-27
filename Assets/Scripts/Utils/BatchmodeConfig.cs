@@ -36,6 +36,24 @@ public class BatchmodeConfig
                     {"generations=", "the number of generations to execute.",
                         (int v) => engine.numGenerations = v
                     },
+                    {"elitism=", "is the algorithm elitist.",
+                        v => algorithm.elitist = v == "y"
+                    },
+                    {"elitism_size=", "number of elites.",
+                        (int v) => algorithm.num_elites = v
+                    },
+                    {"pop_size=", "size of the population.",
+                        (int v) => algorithm.populationSize = v
+                    },
+                    {"t_size=", "tournament size.",
+                        (int v) => algorithm.tournamentSize = v
+                    },
+                    {"m_prob=", "mutation probability.",
+                        (float v) => algorithm.mutationProbability = v
+                    },
+                    {"c_prob=", "crossover probability.",
+                        (float v) => algorithm.crossoverProbability = v
+                    },
                     {"log=", "the logger output filename to use.",
                         v => engine.logFilename = v
                     },
@@ -50,6 +68,7 @@ public class BatchmodeConfig
                 try
                 {
                     parser.Parse(args);
+                    engine.InitPopulation();
                     processed = true;
                 }
                 catch (OptionException e)
@@ -67,6 +86,15 @@ public class BatchmodeConfig
                     Application.Quit();
                     return;
                 }
+
+                Console.WriteLine(algorithm.elitist);
+                Console.WriteLine(algorithm.num_elites);
+                Console.WriteLine(algorithm.numGenerations);
+                Console.WriteLine(algorithm.populationSize);
+                Console.WriteLine(algorithm.tournamentSize);
+                Console.WriteLine(algorithm.mutationProbability);
+                Console.WriteLine(algorithm.crossoverProbability);
+
 
             }
         }
