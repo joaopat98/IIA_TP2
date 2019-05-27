@@ -35,6 +35,7 @@ public class GeneticAlgorithm : MetaHeuristic
     //The Step function assumes that the fitness values of all the individuals in the population have been calculated.
     public override void Step()
     {
+        updateReport();
         if (!elitist)
             num_elites = 0;
         population.Sort(new IndividualComparer());
