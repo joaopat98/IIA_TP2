@@ -40,18 +40,18 @@ public class GeneticAlgorithm : MetaHeuristic
             num_elites = 0;
         population.Sort(new IndividualComparer());
         List<Individual> new_population = new List<Individual>();
-        for (int i = 0; i < tournamentSize - Mathf.Floor(num_elites / (float)2); i++)
+        for (int i = 0; new_population.Count < populationSize - num_elites; i++)
         {
             Individual child = population[i].Clone();
             child.Crossover(population[(i + 1) % tournamentSize], crossoverProbability);
             new_population.Add(child);
-            child = population[i].Clone();
-            child.Crossover(population[(i + 2) % tournamentSize], crossoverProbability);
-            new_population.Add(child);
+            if (new_population.Count < populationSize - num_elites)
+            {
+                child = population[i].Clone();
+                child.Crossover(population[(i + 2) % tournamentSize], crossoverProbability);
+                new_population.Add(child);
+            }
         }
-
-        if (num_elites % 2 == 1)
-            new_population.RemoveAt(new_population.Count - 1);
 
         for (int i = 0; i < num_elites; i++)
         {
@@ -65,6 +65,8 @@ public class GeneticAlgorithm : MetaHeuristic
 
         population = new_population;
         generation++;
+
+        Debug.Log(population.Count);
     }
 
 }
