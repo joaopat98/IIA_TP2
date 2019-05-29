@@ -16,15 +16,15 @@ for amb in filter(lambda a: a.name.startswith("amb"), Path("").glob("*")):
             if i == 0:
                 for j in range(len(sheets)):
                     if j < len(sheets) - 1:
-                        join.write(sheets[j][i][:-1].replace(",","\t") + "\t")
+                        join.write(sheets[j][i][:-1] + ", ,")
                     else:
-                        join.write(sheets[j][i].replace(",","\t"))
+                        join.write(sheets[j][i])
             elif sheets[0][i] != "\n":
                 for j in range(len(sheets)):
                     if j < len(sheets) - 1:
-                        join.write(sheets[j][i][:-1].replace(",","\t") + "\t")
+                        join.write(sheets[j][i][:-1] + ", ,")
                     else:
-                        join.write(sheets[j][i].replace(",","\t"))
+                        join.write(sheets[j][i])
             else:
                 break
         join.close()
