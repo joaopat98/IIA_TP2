@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -321,9 +321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoText: {fileID: 812458883}
   simulating: 0
-  savePathBluePlayer: Best_1556578348.dat
+  savePathBluePlayer: tests\amb4\t_size_20\Best_elitism-y,num_elites-13,num_gens-75,pop_size-35,t_size-20,m_prob-0,1,c_prob-0,8,test-0.dat
   savePathRedPlayer: 
-  simulationPrefab: {fileID: 9123027176374597434, guid: d149e97bd0cef46c2acc87136e978d12,
+  simulationPrefab: {fileID: 7817105169101141572, guid: bd01af788228c4345b88f3a7069a4d67,
     type: 3}
   TheTimeScale: 6
 --- !u!4 &1140463230
