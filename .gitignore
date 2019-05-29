@@ -54,3 +54,5 @@ ProjectSettings/ProjectVersion\.txt
 ProjectSettings/UnityConnectSettings\.asset
 
 !tests/**/*.dat
+!tests/**/*.csv
+!tests/**/*.txt
